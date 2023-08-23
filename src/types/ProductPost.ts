@@ -1,6 +1,5 @@
-export type Product = {
+export type ProductPost = {
   id: number;
   name: string;
   price: number | string;
-  orderId: number;
 };
