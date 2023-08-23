@@ -5,6 +5,6 @@ const route = express.Router();
 
 route.post('/', productController.create);
 
-// route.get('/', productController.findAll);
+route.get('/', productController.findAll);
 
 export default route;
