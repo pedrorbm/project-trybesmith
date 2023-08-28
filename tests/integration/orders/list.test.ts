@@ -10,7 +10,7 @@ chai.use(chaiHttp);
 describe('GET /orders', function () { 
   beforeEach(function () { sinon.restore(); });
 
-  it('Endpoint GET findAll', async function () {
+  it('Endpoint GET findAlll', async function () {
     const orders = orderMock.returnGetOrders;
     const ordersReturn = orderMock.returnGetOrdersBody;
     const productsReturn = OrderModel.bulkBuild(orders);
