@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
-const verifyNameProduct = async (req: Request, res: Response, next: any) => {
+const verifyNameProduct = async (req: Request, res: Response, next: NextFunction) => {
   const { name } = req.body;
 
   if (!name) return res.status(400).json({ message: '"name" is required' });
@@ -14,7 +14,7 @@ const verifyNameProduct = async (req: Request, res: Response, next: any) => {
   next();
 };
 
-const verifyPriceProduct = async (req: Request, res: Response, next: any) => {
+const verifyPriceProduct = async (req: Request, res: Response, next: NextFunction) => {
   const { price } = req.body;
 
   if (!price) return res.status(400).json({ message: '"price" is required' });

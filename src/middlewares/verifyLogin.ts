@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
-const verifyLogin = async (req: Request, res: Response, next: any) => {
+const verifyLogin = async (req: Request, res: Response, next: NextFunction) => {
   const { username, password } = req.body;
 
   if (!username || !password || username.length < 1 || password.length < 1) {
