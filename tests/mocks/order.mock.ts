@@ -42,7 +42,26 @@ const returnGetOrdersBody = [
   }
 ]
 
+const newOrder = {
+  productIds: [1, 2],
+  userId: 1
+}
+
+const orderPost = {
+  id: 3,
+  userId: 1,
+  productIds: [ {id: 1}, {id: 2} ],
+}
+
+const returnCreateService = {
+  status: 201,
+  data: newOrder,
+}
+
 export default {
   returnGetOrders,
   returnGetOrdersBody,
+  newOrder,
+  orderPost,
+  returnCreateService,
 }

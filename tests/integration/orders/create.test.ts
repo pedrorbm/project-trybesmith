@@ -5,6 +5,7 @@ import chaiHttp from 'chai-http';
 chai.use(chaiHttp);
 
 describe('POST /orders', function () { 
-  beforeEach(function () { sinon.restore(); });
-
+  beforeEach(function () {
+    sinon.restore();
+  });
 });

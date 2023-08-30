@@ -1,7 +1,7 @@
 import OrderModel from '../database/models/order.model';
 import ProductModel from '../database/models/product.model';
 import { Response } from '../types/Response';
-import { OrderProductIds } from '../types/Order';
+import { OrderProductIds, OrderPost, OrderPostResult } from '../types/Order';
 
 const findAll = async (): Promise<Response<OrderProductIds[]>> => {
   const orders = await OrderModel.findAll({
@@ -23,6 +23,21 @@ const findAll = async (): Promise<Response<OrderProductIds[]>> => {
   };
 };
 
+const create = async (order: OrderPost): Promise<Response<OrderPostResult>> => {
+  const { productIds, userId } = order;
+  const createOrder = await OrderModel.create({ userId });
+  productIds.map((productId) => ProductModel.update(
+    { orderId: createOrder.dataValues.id }, 
+    { where: { id: productId } },
+  ));
+  
+  return {
+    status: 201,
+    data: order,
+  };
+};
+
 export default {
   findAll,
+  create,
 };
